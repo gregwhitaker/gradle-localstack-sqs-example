@@ -1,0 +1,36 @@
+import com.nike.pdm.localstack.aws.sqs.CreateSqsQueuesTask
+
+plugins {
+    id "java"
+    id "application"
+    id "com.avast.gradle.docker-compose"    version "0.14.0"
+    id "com.nike.pdm.localstack"            version "0.1.0"
+}
+
+// Project Configuration
+group = "com.github.gregwhitaker"
+version = "0.1.0"
+mainClassName = "example.SqsExampleApplication"
+
+// Dependency Management
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.amazonaws:aws-java-sdk-sqs:1.11.447"
+    implementation "org.slf4j:slf4j-simple:1.7.30"
+}
+
+// Docker Compose
+dockerCompose {
+    useComposeFiles = [ 'localstack/localstack-docker-compose.yml' ]
+}
+
+// LocalStack
+task setupQueue(type: CreateSqsQueuesTask) {
+    queueNames = [ 'example-queue' ]
+    queueAttributes = [
+            VisibilityTimeout: '10'
+    ]
+}
