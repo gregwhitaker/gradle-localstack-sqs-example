@@ -37,6 +37,9 @@ Follow the steps below to run the example application:
          │example-queue                                    │http://localhost:4566/000000000000/example-queue │0                                               │
          └─────────────────────────────────────────────────┴─────────────────────────────────────────────────┴────────────────────────────────────────────────┘
 
+    **Note:** The `ApproximateNumberOfMessages` call in LocalStack does not currently return the correct number of messages on the queue. Do not rely on it for
+    testing that your application is working appropriately.
+    
 3. Run the following command to execute the application:
 
          ./gradlew run
