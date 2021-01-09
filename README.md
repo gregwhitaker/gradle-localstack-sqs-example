@@ -1,4 +1,6 @@
 # gradle-localstack-sqs-example
+![Build](https://github.com/gregwhitaker/gradle-localstack-sqs-example/workflows/Build/badge.svg)
+
 An example of working with mock AWS SQS queues using [LocalStack](https://github.com/localstack/localstack) and the [Gradle LocalStack Plugin](https://github.com/Nike-Inc/gradle-localstack).
 
 ## Building the Example
